@@ -10,7 +10,11 @@ import gdown
 import sklearn
 import torch
 
-sys.path.append(str(Path("third_party/deep-image-retrieval")))
+Path(__file__).parent.joinpath
+sys.path.append(str(
+    Path(__file__).parent.parent
+    .joinpath("third_party").joinpath("deep-image-retrieval")
+))
 os.environ["DB_ROOT"] = ""  # required by dirtorch
 
 from dirtorch.extract_features import load_model  # noqa: E402
