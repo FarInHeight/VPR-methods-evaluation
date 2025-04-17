@@ -79,7 +79,7 @@ def main(args):
     del database_descriptors, all_descriptors
 
     logger.debug("Calculating recalls")
-    _, predictions = faiss_index.search(queries_descriptors, max(args.recall_values))
+    distances, predictions = faiss_index.search(queries_descriptors, max(args.recall_values))
 
     # For each query, check if the predictions are correct
     if args.use_labels:
@@ -104,6 +104,14 @@ def main(args):
             predictions[:, : args.num_preds_to_save], test_ds, log_dir, args.save_only_wrong_preds, args.use_labels
         )
 
+    if args.save_for_uncertainty:
+        z_data = {}
+        z_data['database_utms'] = test_ds.database_utms
+        z_data['positives_per_query'] = positives_per_query
+        z_data['predictions'] = predictions
+        z_data['distances'] = distances
+
+        torch.save(z_data, log_dir / "z_data.torch")
 
 if __name__ == "__main__":
     args = parser.parse_arguments()

@@ -91,6 +91,11 @@ def parse_arguments():
         action="store_true",
         help="set to True if you want to save the descriptors extracted by the model",
     )
+    parser.add_argument(
+        "--save_for_uncertainty",
+        action="store_true",
+        help="set to True if you want to save the data for uncertainty estimation",
+    )
     args = parser.parse_args()
 
     args.use_labels = not args.no_labels
