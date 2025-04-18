@@ -10,7 +10,6 @@ import gdown
 import sklearn
 import torch
 
-Path(__file__).parent.joinpath
 sys.path.append(str(
     Path(__file__).parent.parent
     .joinpath("third_party").joinpath("deep-image-retrieval")
