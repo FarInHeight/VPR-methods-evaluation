@@ -18,10 +18,10 @@ jobs:
 
       - name: Merge changes
         run: |
-          git checkout main
-          git merge upstream/main
+          git checkout master
+          git merge upstream/master
 
       - name: Push changes to fork
-        run: git push origin main || echo "No changes to commit"
+        run: git push origin master || echo "No changes to commit"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
