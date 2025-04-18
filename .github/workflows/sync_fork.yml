@@ -10,12 +10,6 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: Set up Git
-        uses: actions/setup-git@v2
-
-      - name: Add upstream remote
-        run: git remote add upstream https://github.com/gmberton/VPR-methods-evaluation.git
-
       - name: Fetch upstream changes
         run: git fetch upstream
 
