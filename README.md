@@ -75,6 +75,9 @@ Given that saving predictions for each query might take long, you can also pass 
 ## Supported models
 NetVLAD, AP-GeM, SFRS, CosPlace, Conv-AP, MixVPR, EigenPlaces, AnyLoc, SALAD, EigenPlaces-indoor, SALAD-indoor, CricaVPR, CliqueMining, MegaLoc.
 
+> [!WARNING]  
+> For academic purposes, MixVPR does not contain a ResNet implementation, which is essential for the correct loading of weights. Please implement it.
+
 ### Unsupported models / contributing
 We'd gladly accept PRs from anyone who can VPR models to work in this repo.
 
